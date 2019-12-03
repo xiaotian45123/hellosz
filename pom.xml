@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.th</groupId>
+  <artifactId>HelloSZ</artifactId>
+  <packaging>war</packaging>
+  <version>1</version>
+  <name>HelloSZ Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>HelloSZ</finalName>
+		<filters>
+		<filter>src/main/resources/zk.properties</filter>
+   </filters>
+	<plugins>	
+		<plugin>  
+			<groupId>org.apache.maven.plugins</groupId>  
+			<artifactId>maven-war-plugin</artifactId>  
+			<version>3.0.0</version>
+			<configuration>  
+			<webResources>  
+            <resource>  
+                <directory>src/main/resources/</directory>  
+                <filtering>true</filtering>  
+                <targetPath>WEB-INF/classes</targetPath>  
+            </resource>  
+			</webResources>  
+			</configuration>  
+		</plugin> 
+	</plugins>
+  </build>
+  
+ <profiles>
+     <profile>
+        <id>pro</id>
+        	    <properties>  
+                   <zkip>140</zkip>  
+               </properties>  
+        </profile>
+
+
+ 	 <profile>
+               <id>pre</id>
+                <properties>  
+                   <zkip>130</zkip>  
+                </properties>  
+ 	</profile>
+ 	
+ 	 <profile>
+         <id>test01</id>
+                <properties>  
+                   <zkip>150</zkip>  
+                </properties>  
+ 	</profile>
+ </profiles>    
+
+
+</project>
+  
+  
+
