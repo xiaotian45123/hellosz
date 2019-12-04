@@ -16,7 +16,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>HelloSZ</finalName>
+    <finalName>hellowh</finalName>
 		<filters>
 		<filter>src/main/resources/zk.properties</filter>
    </filters>
