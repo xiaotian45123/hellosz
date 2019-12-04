@@ -5,7 +5,7 @@
   <artifactId>hellowh</artifactId>
   <packaging>jar</packaging>
   <version>1</version>
-  <name>HelloSZ Maven Webapp</name>
+  <name>hellowh Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -16,7 +16,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>HelloSZ</finalName>
+    <finalName>hellowh</finalName>
 		<filters>
 		<filter>src/main/resources/zk.properties</filter>
    </filters>
