@@ -1,3 +1,3 @@
 FROM busybox:latest
-ADD  hellowh.jar /hellowh.jar
+COPY hellowh.war /hellowh.war
 RUN  mkdir /war/
