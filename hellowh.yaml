@@ -19,7 +19,7 @@ spec:
       - name: alihub
       containers:
       - name: hellowh
-        image: 	nginx:1.17
+        image: 	nginx:1.17.6
         imagePullPolicy: IfNotPresent
         env:
         - name: env
