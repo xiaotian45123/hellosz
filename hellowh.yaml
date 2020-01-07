@@ -1,0 +1,63 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: hellowh
+  labels:
+    deploy: hellowh
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hellowh
+  template:
+    metadata:
+      labels:
+        app: hellowh
+    spec:
+      imagePullSecrets:
+      - name: alihub
+      containers:
+      - name: hellowh
+        image: registry-vpc.cn-shenzhen.aliyuncs.com/dd01sz/hellowh:2019-12-19-14-47-30
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: env
+          value: pro
+        resources:
+          requests:
+            cpu: 0.1
+            memory: 512Mi
+          limits:
+            cpu: 2
+            memory: 8192Mi
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 8080
+          timeoutSeconds: 1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hellowh
+  labels:
+    svc: hellowh
+
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 1200
+  selector:
+    app: hellowh
