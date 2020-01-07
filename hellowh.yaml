@@ -19,7 +19,7 @@ spec:
       - name: alihub
       containers:
       - name: hellowh
-        image: registry-vpc.cn-shenzhen.aliyuncs.com/dd01sz/hellowh:2020-01-07-15-31-51	
+        image: 	tomcat:8.0
         imagePullPolicy: IfNotPresent
         env:
         - name: env
