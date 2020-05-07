@@ -23,9 +23,9 @@ pipeline{
         stage('Package'){
           steps{
               script {
-                  sh "sleep 2000"
                   sh " mvn -V"
-                  sh "mvn package -B -DskipTests" 
+                  sh "mvn clean package -Dmaven.test.skip=true -P product" 
+                  sh " sleep 180 "
               }
           }
         }
